@@ -1,4 +1,4 @@
 # FileExplorer-WPF
-File Explorer on WPF MVVM
+File Explorer WPF MVVM
 
 ![Screenshot](Image-GitHub/image.png)
