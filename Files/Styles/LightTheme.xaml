@@ -1,0 +1,148 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ImageSource x:Key="BackgroundImage">pack://siteoforigin:,,,/Resources/Backgrounds/light.png</ImageSource>
+
+    <!--WindowStyle-->
+
+    <SolidColorBrush x:Key="WindowBackgroundColor" Color="White"/>
+    <SolidColorBrush x:Key="TitleBarForegroundColor" Color="Black"/>
+    <SolidColorBrush x:Key="TitleBarBackgroundColor" Color="White"/>
+
+    <SolidColorBrush x:Key="TitleMouseButtonForegroundColor" Color="Black"/>
+    <SolidColorBrush x:Key="TitleMouseButtonBackgroundColor" Color="#F5F5F5"/>
+    <SolidColorBrush x:Key="TitleMouseCloseButtonForegroundColor" Color="White"/>
+    <SolidColorBrush x:Key="TitleMouseCloseButtonBackgroundColor" Color="#C42B1C"/>
+    <SolidColorBrush x:Key="TitleNotActiveForegroundColor" Color="#999999"/>
+
+    <SolidColorBrush x:Key="AlwaysOnTopIndicatorColor" Color="#999999"/>
+
+    <!--ButtonStyles-->
+
+    <SolidColorBrush x:Key="ButtonForegroundColor" Color="Black"/>
+    <SolidColorBrush x:Key="ButtonBackgroundColor" Color="Transparent"/>
+    <SolidColorBrush x:Key="ButtonMouseBackgroundColor" Color="#88E5E5E5"/>
+    <SolidColorBrush x:Key="TabButtonMouseBackgroundColor" Color="#88E5E5E5"/>
+
+    <SolidColorBrush x:Key="TreeViewButtonForegroundColor" Color="Black"/>
+    <SolidColorBrush x:Key="InstrumentButtonForegroundColor" Color="Black"/>
+
+    <SolidColorBrush x:Key="PathListButtonBackgroundColor" Color="#FAFAFA"/>
+
+    <SolidColorBrush x:Key="PopupButtonForegroundColor" Color="Black"/>
+    <SolidColorBrush x:Key="PopupButtonBackgroundColor" Color="#F0F0F0"/>
+    <SolidColorBrush x:Key="PopupButtonMouseBackgroundColor" Color="#DDDDDD"/>
+    <SolidColorBrush x:Key="PopupButtonBorderBrushColor" Color="Transparent"/>
+    <SolidColorBrush x:Key="PopupButtonMouseBorderBrushColor" Color="LightGray"/>
+
+    <SolidColorBrush x:Key="ToggleButtonBorderBrushColor" Color="#AAAAAA"/>
+    <SolidColorBrush x:Key="ToggleButtonEllipseFillColor" Color="#AAAAAA"/>
+    <SolidColorBrush x:Key="ToggleButtonCheckedBackgroundColor" Color="#AAAAAA"/>
+    <SolidColorBrush x:Key="ToggleButtonCheckedEllipseFillColor" Color="White"/>
+
+    <!--ScrollViewerStyles-->
+
+    <SolidColorBrush x:Key="ThumbBackgroundColor" Color="#DFDFDF"/>
+
+    <!--FileListViewStyles-->
+
+    <SolidColorBrush x:Key="RepeatButtonBackgroundColor" Color="Transparent"/>
+    <SolidColorBrush x:Key="RepeatButtonMouseBackgroundColor" Color="#DFDFDF"/>
+    <SolidColorBrush x:Key="RepeatButtonPathFillColor" Color="#8A8A8A"/>
+
+    <SolidColorBrush x:Key="ColumnHeaderGripperFillColor" Color="Transparent"/>
+    <SolidColorBrush x:Key="ColumnHeaderForegroundColor" Color="Black"/>
+    <SolidColorBrush x:Key="HeaderBorderBackgroundColor" Color="#AAFFFFFF"/>
+    <SolidColorBrush x:Key="HeaderBorderMouseBackgroundColor" Color="White"/>
+    <SolidColorBrush x:Key="HeaderBorderFloatingBackgroundColor" Color="#40AAAAAA"/>
+
+    <!--TreeViewStyles-->
+
+    <SolidColorBrush x:Key="ToggleButtonColor" Color="#9A9A9A"/>
+
+    <!--ComboBoxStyle-->
+
+    <SolidColorBrush x:Key="ComboBoxItemMouseBackgroundColor" Color="#EAEAEA"/>
+    <SolidColorBrush x:Key="ComboBoxToggleButtonMouseBackgroundColor" Color="#F4F4F4"/>
+    <SolidColorBrush x:Key="ComboBoxToggleButtonBorderBrushColor" Color="LightGray"/>
+    <SolidColorBrush x:Key="ComboBoxToggleButtonArrowColor" Color="Gray"/>
+
+    <!--ContextMenuStyle-->
+
+    <SolidColorBrush x:Key="SeparatorColor" Color="LightGray"/>
+    <SolidColorBrush x:Key="CheckBorderColor" Color="Gray"/>
+    <SolidColorBrush x:Key="CheckMarkColor" Color="Gray"/>
+    <SolidColorBrush x:Key="TriangleColor" Color="Gray"/>
+
+    <SolidColorBrush x:Key="HeaderForegroundColor" Color="Black"/>
+    <SolidColorBrush x:Key="InputGestureTextForegroundColor" Color="Gray"/>
+
+    <SolidColorBrush x:Key="IsHighlightedBackgroundColor" Color="#EAEAEA"/>
+    <SolidColorBrush x:Key="MenuBackgroundColor" Color="#FAFAFA"/>
+    <SolidColorBrush x:Key="MenuBorderBrushColor" Color="LightGray"/>
+
+    <!--OtherStyles-->
+
+    <SolidColorBrush x:Key="ToolTipForegroundColor" Color="DarkSlateGray"/>
+    <SolidColorBrush x:Key="ToolTipBackgroundColor" Color="#F3F3F3"/>
+    <SolidColorBrush x:Key="ToolTipBorderBrushColor" Color="#CACACA"/>
+
+    <SolidColorBrush x:Key="FocusVisualStyleBorderBrushColor" Color="Black"/>
+
+    <SolidColorBrush x:Key="TextBoxForegroundColor" Color="Black"/>
+    <SolidColorBrush x:Key="TextBoxBackgroundColor" Color="White"/>
+    <SolidColorBrush x:Key="TextBoxSelectionBrushColor" Color="#CACACA"/>
+    <SolidColorBrush x:Key="TextBoxBorderBrushColor" Color="#CACACA"/>
+    <SolidColorBrush x:Key="TextBoxCaretBrushColor" Color="#CACACA"/>
+    
+    <!--MainWindow-->
+
+    <SolidColorBrush x:Key="RectanglePopupFillColor" Color="#44FFFFFF"/>
+
+    <!--TabButtons-->
+
+    <SolidColorBrush x:Key="TabButtonForegroundColor" Color="Black"/>
+    <SolidColorBrush x:Key="TabButtonBorderBrushColor" Color="#DADADA"/>
+    <SolidColorBrush x:Key="SelectedTabButtonBackgroundColor" Color="White"/>
+    <SolidColorBrush x:Key="TabButtonMouseBorderBrushColor" Color="#A8A8A8"/>
+
+    <!--TopPanel-->
+
+    <SolidColorBrush x:Key="TopPanelBackgroundColor" Color="#66F5F5F5"/>
+    <SolidColorBrush x:Key="PathListBackgroundColor" Color="White"/>
+    <SolidColorBrush x:Key="PathListForegroundColor" Color="Black"/>
+    <SolidColorBrush x:Key="PathListSplitterFillColor" Color="#A0A0A0"/>
+
+    <!--LeftPanel-->
+
+    <SolidColorBrush x:Key="LeftPanelBackgroundColor" Color="#66F5F5F5"/>
+    <SolidColorBrush x:Key="TextHeaderForegroundColor" Color="#A5A5A5"/>
+
+    <!--CenterPanel-->
+
+    <SolidColorBrush x:Key="CenterPanelBackgroundColor" Color="#66F5F5F5"/>
+    <SolidColorBrush x:Key="CenterPanelForegroundColor" Color="Black"/>
+    <SolidColorBrush x:Key="FileListForegroundColor" Color="Black"/>
+
+    <Color x:Key="ItemBackgroundColor">#EEFFFFFF</Color>
+    <SolidColorBrush x:Key="ItemSelectedBackgroundColor" Color="#AAEAEAFF"/>
+    <SolidColorBrush x:Key="ItemBorderBrushColor" Color="White"/>
+    <SolidColorBrush x:Key="ItemMouseBorderBrushColor" Color="#CACACA"/>
+
+    <SolidColorBrush x:Key="LoadingIndicatorStrokeColor" Color="#AAAAAA"/>
+
+    <SolidColorBrush x:Key="FooterBackgroundColor" Color="White"/>
+    <SolidColorBrush x:Key="FooterSplitterFillColor" Color="#CACACA"/>
+    <SolidColorBrush x:Key="ProgressBarTrackBorderBrushColor" Color="LightGray"/>
+    <SolidColorBrush x:Key="ProgressBarIndicatorBackgroundColor" Color="LightBlue"/>
+
+    <!--PopupControl-->
+
+    <SolidColorBrush x:Key="PopupBackgroundColor" Color="#FAFAFA"/>
+    <SolidColorBrush x:Key="PopupBorderBrushColor" Color="LightGray"/>
+
+    <!--Popups-->
+
+    <SolidColorBrush x:Key="PopupForegroundColor" Color="Black"/>
+
+</ResourceDictionary>

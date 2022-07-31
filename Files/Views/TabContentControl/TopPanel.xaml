@@ -1,0 +1,175 @@
+﻿<UserControl x:Class="Files.Views.TabContentControl.TopPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:lg="clr-namespace:Files.Resources.MultilingualResources"
+             xmlns:v="clr-namespace:Files.Views"
+             mc:Ignorable="d">
+    <Border Height="76"
+            Background="{DynamicResource TopPanelBackgroundColor}"
+            CornerRadius="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="42"/>
+                <RowDefinition Height="34"/>
+            </Grid.RowDefinitions>
+
+            <Button Width="32" Height="32"
+                    Margin="5"
+                    ToolTip="{lg:Loc TopPanelSettingsButton.ToolTip}"
+                    HorizontalAlignment="Right"
+                    Command="{Binding OpenSettingsCommand}"
+                    Style="{StaticResource InstrumentButtonStyle}">
+                <Image Width="20" Source="{StaticResource SettingsIcon}"/>
+            </Button>
+
+            <Grid Grid.Row="1"
+                  Margin="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="155"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <Button Width="26"
+                            Margin="3 0"
+                            ToolTip="{lg:Loc NavigationToolbarBackButton.ToolTip}"
+                            Style="{StaticResource TabButtonStyle}"
+                            Command="{Binding BackCommand}">
+                        <Button.Content>
+                            <Image Width="16" Height="16"
+                                   Source="{StaticResource LeftArrowIcon}"/>
+                        </Button.Content>
+                    </Button>
+
+                    <Button Width="26"
+                            Margin="3 0"
+                            ToolTip="{lg:Loc NavigationToolbarForwardButton.ToolTip}"
+                            Style="{StaticResource TabButtonStyle}"
+                            Command="{Binding ForwardCommand}">
+                        <Button.Content>
+                            <Image Width="16" Height="16"
+                                   Source="{StaticResource RightArrowIcon}"/>
+                        </Button.Content>
+                    </Button>
+
+                    <Button Width="26"
+                            Margin="3 0"
+                            ToolTip="{lg:Loc NavigationToolbarUpButton.ToolTip}"
+                            Style="{StaticResource TabButtonStyle}"
+                            Command="{Binding UpCommand}">
+                        <Button.Content>
+                            <Image Width="16" Height="16"
+                                   Source="{StaticResource TopArrowIcon}"/>
+                        </Button.Content>
+                    </Button>
+
+                    <Button Width="26"
+                            Margin="3 0"
+                            ToolTip="{lg:Loc NavigationToolbarRefreshButton.ToolTip}"
+                            Style="{StaticResource TabButtonStyle}"
+                            Command="{Binding RefreshCommand}">
+                        <Button.Content>
+                            <Image Width="16" Height="16"
+                                   Source="{StaticResource RefreshIcon}"/>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+
+                <TextBox x:Name="PathTextBox"
+                         Grid.Column="1"
+                         Text="{Binding Path}"
+                         Height="26"
+                         Margin="5 0 0 0"
+                         FontSize="16"
+                         Style="{StaticResource PathTextBoxStyle}"
+                         v:InputBindingsManager.UpdatePropertySourceWhenEnterPressed="TextBox.Text"/>
+
+                <Border Grid.Column="1"
+                        Height="26"
+                        Margin="5 0 0 0"
+                        CornerRadius="5"
+                        Background="{DynamicResource PathListBackgroundColor}"
+                        MouseUp="Border_MouseUp"
+                        IsVisibleChanged="Border_IsVisibleChanged">
+                    <Border.Style>
+                        <Style TargetType="{x:Type Border}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsFocused, ElementName=PathTextBox}" Value="True">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+
+                    <ListView x:Name="PathListView"
+                              Margin="1 1 10 1"
+                              ItemsSource="{Binding PathList}"
+                              BorderThickness="0"
+                              SelectionMode="Single"
+                              Background="Transparent"
+                              ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                              PreviewMouseWheel="ListView_PreviewMouseWheel"
+                              v:ListViewExtenders.AutoScrollToEnd="True">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                            <Button Style="{StaticResource PathListButtonStyle}"
+                                                    Foreground="{DynamicResource PathListForegroundColor}"
+                                                    Command="{Binding DataContext.GoToPathListItemCommand, ElementName=PathListView}"
+                                                    CommandParameter="{Binding Index}">
+                                                <ContentPresenter HorizontalAlignment="Center"
+                                                                  VerticalAlignment="Center"/>
+                                            </Button>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Background="Transparent">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Header}"
+                                                   Margin="5 -5"
+                                                   FontSize="14"/>
+                                        <Path Stroke="{DynamicResource PathListSplitterFillColor}"
+                                              VerticalAlignment="Center"
+                                              Margin="0 0 2 0"
+                                              Data="M 0 0 L 3 3 L 0 6"/>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                </Border>
+
+                <Button Grid.Column="2"
+                        Width="26"
+                        Margin="4 0 0 0"
+                        ToolTip="{lg:Loc NavigationToolbarGoToButton.ToolTip}"
+                        Command="{Binding RefreshCommand}"
+                        Style="{StaticResource TabButtonStyle}">                    
+                    <Button.Content>
+                        <Image Width="16" Height="16"
+                               Source="{StaticResource RightArrowIcon}"/>
+                    </Button.Content>
+                </Button>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

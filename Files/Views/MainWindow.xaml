@@ -1,0 +1,99 @@
+﻿<uc:FilesWindow x:Class="Files.Views.MainWindow"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:lg="clr-namespace:Files.Resources.MultilingualResources"
+                xmlns:prop="clr-namespace:Files.Properties"
+                xmlns:cv="clr-namespace:Files.ViewModels.Converters"
+                xmlns:vm="clr-namespace:Files.ViewModels"
+                xmlns:uc="clr-namespace:Files.Views"
+                mc:Ignorable="d"
+                UseLayoutRounding="True"
+                MinWidth="300" MinHeight="200"
+                Width="{Binding Source={x:Static prop:Settings.Default}, Path=WindowWidth, Mode=TwoWay}"
+                Height="{Binding Source={x:Static prop:Settings.Default}, Path=WindowHeight, Mode=TwoWay}"
+                Left="{Binding Source={x:Static prop:Settings.Default}, Path=WindowLeft, Mode=TwoWay}"
+                Top="{Binding Source={x:Static prop:Settings.Default}, Path=WindowTop, Mode=TwoWay}"
+                WindowState="{Binding WindowState}"
+                Title="{lg:Loc Program.Title}"
+                Style="{StaticResource WindowStyle}"
+                StateChanged="FilesWindow_StateChanged"
+                Closing="FilesWindow_Closing">
+    <uc:FilesWindow.Resources>
+        <cv:PopupVisibilityConverter x:Key="PopupVisibilityConverter"/>
+    </uc:FilesWindow.Resources>
+    
+    <uc:FilesWindow.DataContext>
+        <vm:MainWindowViewModel/>
+    </uc:FilesWindow.DataContext>
+
+    <uc:FilesWindow.InputBindings>
+        <KeyBinding Modifiers="Ctrl" Key="T" Command="{Binding MainViewModel.TabButtonsViewModel.AddTabCommand}"/>
+
+        <KeyBinding Modifiers="Alt" Key="Left" Command="{Binding SelectedTabContentViewModel.TopPanelViewModel.BackCommand}"/>
+        <KeyBinding Modifiers="Alt" Key="Right" Command="{Binding SelectedTabContentViewModel.TopPanelViewModel.ForwardCommand}"/>
+        <KeyBinding Modifiers="Alt" Key="Up" Command="{Binding SelectedTabContentViewModel.TopPanelViewModel.UpCommand}"/>
+        <KeyBinding Key="F5" Command="{Binding SelectedTabContentViewModel.TopPanelViewModel.RefreshCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="R" Command="{Binding SelectedTabContentViewModel.TopPanelViewModel.RefreshCommand}"/>
+
+        <KeyBinding Modifiers="Ctrl+Shift" Key="N" Command="{Binding SelectedTabContentViewModel.CenterPanelViewModel.AddDirectoryCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="X" Command="{Binding SelectedTabContentViewModel.CenterPanelViewModel.CutFilesCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="C" Command="{Binding SelectedTabContentViewModel.CenterPanelViewModel.CopyFilesCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="V" Command="{Binding SelectedTabContentViewModel.CenterPanelViewModel.PasteFilesCommand}"/>
+        <KeyBinding Key="F2" Command="{Binding SelectedTabContentViewModel.CenterPanelViewModel.RenameFileCommand}"/>
+        <KeyBinding Key="Delete" Command="{Binding SelectedTabContentViewModel.CenterPanelViewModel.DeleteFilesCommand}"
+                    CommandParameter="{StaticResource True}"/>
+        <KeyBinding Modifiers="Shift" Key="Delete" Command="{Binding SelectedTabContentViewModel.CenterPanelViewModel.DeleteFilesCommand}"
+                    CommandParameter="{StaticResource False}"/>
+        <KeyBinding Modifiers="Ctrl" Key="F" Command="{Binding SelectedTabContentViewModel.CenterPanelViewModel.SearchFilesCommand}"/>
+    </uc:FilesWindow.InputBindings>
+    
+    <Grid>
+        <uc:MainControl DataContext="{Binding MainViewModel}">
+            <uc:MainControl.Style>
+                <Style TargetType="{x:Type uc:MainControl}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Visibility, ElementName=Popup}" Value="Visible">
+                            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+                            <Setter Property="KeyboardNavigation.DirectionalNavigation" Value="None"/>
+                            <Setter Property="KeyboardNavigation.ControlTabNavigation" Value="None"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </uc:MainControl.Style>
+        </uc:MainControl>
+
+        <Rectangle Fill="{DynamicResource RectanglePopupFillColor}"
+                   Visibility="{Binding Visibility, ElementName=Popup}"/>
+        
+        <uc:PopupControl x:Name="Popup"
+                         DataContext="{Binding PopupViewModel}"
+                         Visibility="{Binding OpenDialogType, Converter={StaticResource PopupVisibilityConverter}}">
+            <uc:PopupControl.Style>
+                <Style TargetType="{x:Type uc:PopupControl}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=IsVisible}" Value="True">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                         From="0" To="1"
+                                                         Duration="00:00:00.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </uc:PopupControl.Style>
+            
+            <uc:PopupControl.Effect>
+                <DropShadowEffect Opacity="0.2"
+                                  ShadowDepth="8"
+                                  BlurRadius="20"
+                                  Direction="270"/>
+            </uc:PopupControl.Effect>
+        </uc:PopupControl>
+    </Grid>
+</uc:FilesWindow>

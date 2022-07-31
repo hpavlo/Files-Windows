@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="Files.Views.PopupControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dl="clr-namespace:Files.Views.Popups"
+             xmlns:cv="clr-namespace:Files.ViewModels.Converters"
+             mc:Ignorable="d"
+             x:Name="Popup">
+    <UserControl.Resources>
+        <cv:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <Border CornerRadius="8"
+            BorderThickness="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="{DynamicResource PopupBackgroundColor}"
+            BorderBrush="{DynamicResource PopupBorderBrushColor}">
+        <Grid>
+            <dl:RenamePopup DataContext="{Binding RenamePopupViewModel}"
+                            Visibility="{Binding IsShowing, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+            <dl:AddDirectoryPopup DataContext="{Binding AddDirectoryPopupViewModel}"
+                                  Visibility="{Binding IsShowing, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+            <dl:SettingsPopup DataContext="{Binding SettingsPopupViewModel}"
+                              Visibility="{Binding IsShowing, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        </Grid>
+    </Border>
+</UserControl>

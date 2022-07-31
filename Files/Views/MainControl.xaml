@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="Files.Views.MainControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:uc="clr-namespace:Files.Views"
+             mc:Ignorable="d"
+             MouseUp="UserControl_MouseUp">    
+    <Grid>        
+        <Grid.Background>
+            <ImageBrush ImageSource="{DynamicResource BackgroundImage}">
+            </ImageBrush>
+        </Grid.Background>
+
+        <uc:TabControlEx ItemsSource="{Binding Tabs}"
+                         Margin="0 30 0 0"
+                         Padding="0"
+                         BorderThickness="0"
+                         Background="Transparent"
+                         Focusable="False"
+                         SelectedIndex="{Binding SelectedTabIndex, Mode=OneWay}">
+            <uc:TabControlEx.Resources>
+                <Style TargetType="{x:Type uc:TabControlEx}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TabControl}">
+                                <Grid Background="{TemplateBinding Background}"
+                                      ClipToBounds="True"
+                                      KeyboardNavigation.TabNavigation="Local"
+                                      SnapsToDevicePixels="True">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition x:Name="ColumnDefinition0"/>
+                                        <ColumnDefinition x:Name="ColumnDefinition1" Width="0"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition x:Name="RowDefinition0" Height="Auto"/>
+                                        <RowDefinition x:Name="RowDefinition1" Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <DockPanel Margin="2 2 0 0"
+                                               LastChildFill="False">
+                                        <TabPanel x:Name="HeaderPanel"
+                                                  Margin="0 0 0 -1"
+                                                  VerticalAlignment="Bottom"
+                                                  Panel.ZIndex="1"
+                                                  DockPanel.Dock="Right"
+                                                  IsItemsHost="True"
+                                                  KeyboardNavigation.TabIndex="1"/>
+                                    </DockPanel>
+                                    <Border x:Name="ContentPanel"
+                                            Grid.Row="1" Grid.Column="0"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            KeyboardNavigation.DirectionalNavigation="Contained"
+                                            KeyboardNavigation.TabIndex="2"
+                                            KeyboardNavigation.TabNavigation="Local">
+                                        <Grid x:Name="PART_ItemsHolder"
+                                              Margin="{TemplateBinding Padding}"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                    </Border>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+
+                <Style TargetType="{x:Type TabItem}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </Style>
+
+                <Style TargetType="{x:Type TabControl}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TabControl}">
+                                <Border>
+                                    <ContentPresenter ContentSource="SelectedContent"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </uc:TabControlEx.Resources>
+
+            <uc:TabControlEx.ContentTemplate>
+                <DataTemplate>
+                    <uc:TabContent/>
+                </DataTemplate>
+            </uc:TabControlEx.ContentTemplate>
+            
+        </uc:TabControlEx>
+
+        <uc:TabButtons Margin="5 30 47 0"
+                       DataContext="{Binding TabButtonsViewModel}"/>
+
+        <ResizeGrip x:Name="ResizeGrip"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    IsTabStop="False"
+                    WindowChrome.ResizeGripDirection="BottomRight"/>
+    </Grid>
+</UserControl>

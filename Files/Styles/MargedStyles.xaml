@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+
+    <s:Boolean x:Key="True">True</s:Boolean>
+    <s:Boolean x:Key="False">False</s:Boolean>
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <!--Styles-->
+
+        <ResourceDictionary Source="AllStyles/WindowStyle.xaml"/>
+        <ResourceDictionary Source="AllStyles/ButtonStyles.xaml"/>
+        <ResourceDictionary Source="AllStyles/ScrollViewerStyle.xaml"/>
+        <ResourceDictionary Source="AllStyles/TreeViewStyle.xaml"/>
+        <ResourceDictionary Source="AllStyles/FileListViewStyle.xaml"/>
+        <ResourceDictionary Source="AllStyles/ComboBoxStyle.xaml"/>
+        <ResourceDictionary Source="AllStyles/ContextMenuStyle.xaml"/>
+        <ResourceDictionary Source="AllStyles/OtherStyles.xaml"/>
+
+
+        <!--Icons-->
+        
+        <ResourceDictionary Source="../Resources/Icons/ContextMenuIcons.xaml"/>
+        <ResourceDictionary Source="../Resources/Icons/DriveIcons.xaml"/>
+        <ResourceDictionary Source="../Resources/Icons/FolderIcons.xaml"/>
+        <ResourceDictionary Source="../Resources/Icons/InstrumentIcons.xaml"/>
+        <ResourceDictionary Source="../Resources/Icons/MessageDialogIcons.xaml"/>
+        <ResourceDictionary Source="../Resources/Icons/NavigateIcons.xaml"/>
+        <ResourceDictionary Source="../Resources/Icons/OtherIcons.xaml"/>
+        <ResourceDictionary Source="../Resources/Icons/SettingIcons.xaml"/>
+
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

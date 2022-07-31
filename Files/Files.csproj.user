@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\pavlo\Desktop\Files\Files\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\Dialogs\MessageDialogWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Popups\AddDirectoryPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Popups\RenamePopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Popups\SettingsPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TabContentControl\CenterPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TabContentControl\LeftPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MainControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PopupControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TabButtons.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TabContent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TabContentControl\TopPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Icons\ContextMenuIcons.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Icons\MessageDialogIcons.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Icons\OtherIcons.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\AllStyles\ComboBoxStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\AllStyles\ContextMenuStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\AllStyles\WindowStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\DarkTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\LightTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\MargedStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\AllStyles\FileListViewStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\AllStyles\OtherStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\AllStyles\ScrollViewerStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\AllStyles\ButtonStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\AllStyles\TreeViewStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Dialogs\MessageDialogWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Popups\AddDirectoryPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Popups\RenamePopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Popups\SettingsPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TabContentControl\CenterPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TabContentControl\LeftPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MainControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PopupControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TabButtons.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TabContent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TabContentControl\TopPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,430 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <DrawingImage x:Key="AddIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V20 H20 V0 H0 Z">
+                <DrawingGroup Opacity="1">
+                    <DrawingGroup Opacity="1">
+                        <DrawingGroup Opacity="1">
+                            <GeometryDrawing>
+                                <GeometryDrawing.Brush>
+                                    <SolidColorBrush Color="#FFFFFFFF" Opacity="0" />
+                                </GeometryDrawing.Brush>
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,20,20" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#FF4D4D4D" Geometry="F1 M20,20z M0,0z M10,3A7,7,0,1,1,3,10A7,7,0,0,1,10,3 M10,1A9,9,0,1,0,19,10A9,9,0,0,0,10,1z" />
+                            <GeometryDrawing>
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="#FF0071BC" Thickness="2" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" />
+                                </GeometryDrawing.Pen>
+                                <GeometryDrawing.Geometry>
+                                    <LineGeometry StartPoint="10,6" EndPoint="10,14" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing>
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="#FF0071BC" Thickness="2" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" />
+                                </GeometryDrawing.Pen>
+                                <GeometryDrawing.Geometry>
+                                    <LineGeometry StartPoint="6,10" EndPoint="14,10" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="CutIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V20 H20 V0 H0 Z">
+                <DrawingGroup Opacity="1">
+                    <DrawingGroup Opacity="1">
+                        <DrawingGroup Opacity="1">
+                            <GeometryDrawing>
+                                <GeometryDrawing.Brush>
+                                    <SolidColorBrush Color="#FFFFFFFF" Opacity="0" />
+                                </GeometryDrawing.Brush>
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,20,20" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing>
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="#FF666666" Thickness="2" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" />
+                                </GeometryDrawing.Pen>
+                                <GeometryDrawing.Geometry>
+                                    <LineGeometry StartPoint="15,1" EndPoint="7,14" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing>
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="#FF808080" Thickness="2" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" />
+                                </GeometryDrawing.Pen>
+                                <GeometryDrawing.Geometry>
+                                    <LineGeometry StartPoint="5,1" EndPoint="13,14" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing>
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="#FF0071BC" Thickness="2" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                                </GeometryDrawing.Pen>
+                                <GeometryDrawing.Geometry>
+                                    <EllipseGeometry RadiusX="2.5" RadiusY="2.5" Center="5.5,16.5" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing>
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="#FF0071BC" Thickness="2" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                                </GeometryDrawing.Pen>
+                                <GeometryDrawing.Geometry>
+                                    <EllipseGeometry RadiusX="2.5" RadiusY="2.5" Center="14.5,16.5" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#FFE6E6E6">
+                                <GeometryDrawing.Geometry>
+                                    <EllipseGeometry RadiusX="1" RadiusY="1" Center="10,9" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="CopyIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V20 H20 V0 H0 Z">
+                <DrawingGroup Opacity="1">
+                    <DrawingGroup Opacity="1">
+                        <DrawingGroup Opacity="1">
+                            <GeometryDrawing>
+                                <GeometryDrawing.Brush>
+                                    <SolidColorBrush Color="#FFFFFFFF" Opacity="0" />
+                                </GeometryDrawing.Brush>
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,20,20" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Geometry="F1 M20,20z M0,0z M5,15.78L5,2 4,2A2,2,0,0,0,2,4L2,18A2,2,0,0,0,4,20L12,20A2,2,0,0,0,14,18L7.5,18A2.37,2.37,0,0,1,5,15.78z">
+                                <GeometryDrawing.Brush>
+                                    <LinearGradientBrush StartPoint="-0.09,4.05" EndPoint="9.97,21.48" MappingMode="Absolute" SpreadMethod="Pad" Opacity="1">
+                                        <GradientStop Color="#FF999999" Offset="0" />
+                                        <GradientStop Color="#FF808080" Offset="1" />
+                                    </LinearGradientBrush>
+                                </GeometryDrawing.Brush>
+                            </GeometryDrawing>
+                            <GeometryDrawing Geometry="F1 M20,20z M0,0z M16,17L8,17A2,2,0,0,1,6,15L6,2A2,2,0,0,1,8,0L13,0 18,4 18,15A2,2,0,0,1,16,17z">
+                                <GeometryDrawing.Brush>
+                                    <LinearGradientBrush StartPoint="6.64,0.48" EndPoint="16.27,17.16" MappingMode="Absolute" SpreadMethod="Pad" Opacity="1">
+                                        <GradientStop Color="#FF00A99D" Offset="0" />
+                                        <GradientStop Color="#FF02A59D" Offset="0.18" />
+                                        <GradientStop Color="#FF06989B" Offset="0.36" />
+                                        <GradientStop Color="#FF0E849A" Offset="0.55" />
+                                        <GradientStop Color="#FF196797" Offset="0.74" />
+                                        <GradientStop Color="#FF284294" Offset="0.93" />
+                                        <GradientStop Color="#FF2E3192" Offset="1" />
+                                    </LinearGradientBrush>
+                                </GeometryDrawing.Brush>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#FF80E4E4" Geometry="F1 M20,20z M0,0z M18,4L15,4A2,2,0,0,1,13,2L13,0z" />
+                            <GeometryDrawing Brush="#FFE6E6E6">
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="0.5" RadiusY="0.5" Rect="8,4,4,1" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#FFE6E6E6">
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="0.5" RadiusY="0.5" Rect="8,7,8,1" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#FFE6E6E6">
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="0.5" RadiusY="0.5" Rect="8,10,8,1" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#FFE6E6E6">
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="0.5" RadiusY="0.5" Rect="8,13,8,1" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="PasteIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V20 H20 V0 H0 Z">
+                <DrawingGroup Opacity="1">
+                    <DrawingGroup Opacity="1">
+                        <DrawingGroup Opacity="1">
+                            <GeometryDrawing>
+                                <GeometryDrawing.Brush>
+                                    <SolidColorBrush Color="#FFFFFFFF" Opacity="0" />
+                                </GeometryDrawing.Brush>
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,20,20" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing>
+                                <GeometryDrawing.Brush>
+                                    <LinearGradientBrush StartPoint="3.56,1.94" EndPoint="13.44,19.06" MappingMode="Absolute" SpreadMethod="Pad" Opacity="1">
+                                        <GradientStop Color="#FF999999" Offset="0" />
+                                        <GradientStop Color="#FF808080" Offset="1" />
+                                    </LinearGradientBrush>
+                                </GeometryDrawing.Brush>
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="2" RadiusY="2" Rect="2,2,13,17" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Geometry="F1 M20,20z M0,0z M9,20L16,20A2,2,0,0,0,18,18L18,8 14,5 9,5A2,2,0,0,0,7,7L7,18A2,2,0,0,0,9,20z">
+                                <GeometryDrawing.Brush>
+                                    <LinearGradientBrush StartPoint="7.91,5.32" EndPoint="16.42,20.06" MappingMode="Absolute" SpreadMethod="Pad" Opacity="1">
+                                        <GradientStop Color="#FF00A99D" Offset="0" />
+                                        <GradientStop Color="#FF02A59D" Offset="0.18" />
+                                        <GradientStop Color="#FF06989B" Offset="0.36" />
+                                        <GradientStop Color="#FF0E849A" Offset="0.55" />
+                                        <GradientStop Color="#FF196797" Offset="0.74" />
+                                        <GradientStop Color="#FF284294" Offset="0.93" />
+                                        <GradientStop Color="#FF2E3192" Offset="1" />
+                                    </LinearGradientBrush>
+                                </GeometryDrawing.Brush>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#FF80E4E4" Geometry="F1 M20,20z M0,0z M18,8L16,8A2,2,0,0,1,14,6L14,5z" />
+                            <GeometryDrawing Brush="#FFCCCCCC" Geometry="F1 M20,20z M0,0z M10,1A1,1,0,0,1,10,3L7,3A1,1,0,0,1,7,1L10,1 M10,0L7,0A2,2,0,0,0,7,4L10,4A2,2,0,0,0,10,0z" />
+                            <GeometryDrawing Brush="#FFE6E6E6">
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="0.42" RadiusY="0.42" Rect="9,8,4,1" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#FFE6E6E6">
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="0.42" RadiusY="0.42" Rect="9,11,7,1" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#FFE6E6E6">
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="0.42" RadiusY="0.42" Rect="9,14,7,1" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#FFE6E6E6">
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="0.42" RadiusY="0.42" Rect="9,17,7,1" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="RenameIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V20 H20 V0 H0 Z">
+                <DrawingGroup Opacity="1">
+                    <DrawingGroup Opacity="1">
+                        <DrawingGroup Opacity="1">
+                            <GeometryDrawing>
+                                <GeometryDrawing.Brush>
+                                    <SolidColorBrush Color="#FFFFFFFF" Opacity="0" />
+                                </GeometryDrawing.Brush>
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,20,20" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Geometry="F1 M20,20z M0,0z M11,15L3,15A3,3,0,0,1,0,12L0,8A3,3,0,0,1,3,5L11,5z M17,5L15,5 15,15 17,15A3,3,0,0,0,20,12L20,8A3,3,0,0,0,17,5z">
+                                <GeometryDrawing.Brush>
+                                    <LinearGradientBrush StartPoint="3.38,3.38" EndPoint="16.62,16.62" MappingMode="Absolute" SpreadMethod="Pad" Opacity="1">
+                                        <GradientStop Color="#FF00A99D" Offset="0" />
+                                        <GradientStop Color="#FF2E3192" Offset="1" />
+                                    </LinearGradientBrush>
+                                </GeometryDrawing.Brush>
+                            </GeometryDrawing>
+                            <GeometryDrawing>
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="#FF4D4D4D" Thickness="2" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" />
+                                </GeometryDrawing.Pen>
+                                <GeometryDrawing.Geometry>
+                                    <LineGeometry StartPoint="3,10" EndPoint="8,10" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing>
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="#FF666666" Thickness="2" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" />
+                                </GeometryDrawing.Pen>
+                                <GeometryDrawing.Geometry>
+                                    <LineGeometry StartPoint="11,3" EndPoint="15,3" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing>
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="#FF666666" Thickness="2" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" />
+                                </GeometryDrawing.Pen>
+                                <GeometryDrawing.Geometry>
+                                    <LineGeometry StartPoint="15,17" EndPoint="11,17" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing>
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="#FF666666" Thickness="2" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                                </GeometryDrawing.Pen>
+                                <GeometryDrawing.Geometry>
+                                    <LineGeometry StartPoint="13,3" EndPoint="13,17" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="ShareIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V20 H20 V0 H0 Z">
+                <DrawingGroup Opacity="1">
+                    <DrawingGroup Opacity="1">
+                        <DrawingGroup Opacity="1">
+                            <GeometryDrawing>
+                                <GeometryDrawing.Brush>
+                                    <SolidColorBrush Color="#FFFFFFFF" Opacity="0" />
+                                </GeometryDrawing.Brush>
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,20,20" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Geometry="F1 M20,20z M0,0z M18,13.79L18,15.89A2.16,2.16,0,0,1,15.78,18L4.22,18A2.16,2.16,0,0,1,2,15.89L2,4.11A2.16,2.16,0,0,1,4.22,2L9.11,2">
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="#FF666666" Thickness="2" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" />
+                                </GeometryDrawing.Pen>
+                            </GeometryDrawing>
+                            <GeometryDrawing Geometry="F1 M20,20z M0,0z M15.1,3.26L18.66,6.71A1.09,1.09,0,0,1,18.66,8.29L15.1,11.74A0.92,0.92,0,0,1,13.54,11.12L13.54,9.83A0.4,0.4,0,0,0,13.11,9.43C11.87,9.48,8.2,9.79,5.64,11.49A0.41,0.41,0,0,1,5,11C6.08,7.9,8.15,5.69,13.11,5.57A0.41,0.41,0,0,0,13.52,5.17L13.52,3.88A0.92,0.92,0,0,1,15.1,3.26z">
+                                <GeometryDrawing.Brush>
+                                    <LinearGradientBrush StartPoint="8.77,5.95" EndPoint="14.89,12.07" MappingMode="Absolute" SpreadMethod="Pad" Opacity="1">
+                                        <GradientStop Color="#FF00A99D" Offset="0" />
+                                        <GradientStop Color="#FF2E3192" Offset="1" />
+                                    </LinearGradientBrush>
+                                </GeometryDrawing.Brush>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="DeleteIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V20 H20 V0 H0 Z">
+                <DrawingGroup Opacity="1">
+                    <DrawingGroup Opacity="1">
+                        <DrawingGroup Opacity="1">
+                            <GeometryDrawing>
+                                <GeometryDrawing.Brush>
+                                    <SolidColorBrush Color="#FFFFFFFF" Opacity="0" />
+                                </GeometryDrawing.Brush>
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,20,20" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Geometry="F1 M20,20z M0,0z M4,6L16,6A0,0,0,0,1,16,6L16,17A3,3,0,0,1,13,20L7,20A3,3,0,0,1,4,17L4,6A0,0,0,0,1,4,6z">
+                                <GeometryDrawing.Brush>
+                                    <LinearGradientBrush StartPoint="5.94,4.88" EndPoint="14.46,19.62" MappingMode="Absolute" SpreadMethod="Pad" Opacity="1">
+                                        <GradientStop Color="#FF666666" Offset="0" />
+                                        <GradientStop Color="#FF4D4D4D" Offset="1" />
+                                    </LinearGradientBrush>
+                                </GeometryDrawing.Brush>
+                            </GeometryDrawing>
+                            <GeometryDrawing>
+                                <GeometryDrawing.Brush>
+                                    <LinearGradientBrush StartPoint="4.2,1.15" EndPoint="15.8,7.85" MappingMode="Absolute" SpreadMethod="Pad" Opacity="1">
+                                        <GradientStop Color="#FF999999" Offset="0" />
+                                        <GradientStop Color="#FF808080" Offset="1" />
+                                    </LinearGradientBrush>
+                                </GeometryDrawing.Brush>
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="1.5" RadiusY="1.5" Rect="2.5,3,15,3" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Geometry="F1 M20,20z M0,0z M8,3A1.94,1.94,0,0,1,10,1A2,2,0,0,1,12,3">
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="#FF999999" Thickness="2" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                                </GeometryDrawing.Pen>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#FF29ABE2">
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="1" RadiusY="1" Rect="5,8.33,2,8.33" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#FF29ABE2">
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="1" RadiusY="1" Rect="9,9.33,2,8.33" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#FF29ABE2">
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="1" RadiusY="1" Rect="13,8.33,2,8.33" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="SearchIcons">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V20 H20 V0 H0 Z">
+                <DrawingGroup Opacity="1">
+                    <DrawingGroup Opacity="1">
+                        <DrawingGroup Opacity="1">
+                            <GeometryDrawing>
+                                <GeometryDrawing.Brush>
+                                    <SolidColorBrush Color="#FFFFFFFF" Opacity="0" />
+                                </GeometryDrawing.Brush>
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,20,20" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing>
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="#FF4D4D4D" Thickness="2" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" />
+                                </GeometryDrawing.Pen>
+                                <GeometryDrawing.Geometry>
+                                    <LineGeometry StartPoint="7,13" EndPoint="9,11" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing>
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="#FF4D4D4D" Thickness="3" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" />
+                                </GeometryDrawing.Pen>
+                                <GeometryDrawing.Geometry>
+                                    <LineGeometry StartPoint="2.5,17.5" EndPoint="6.5,13.5" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing>
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="#FF0071BC" Thickness="2" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                                </GeometryDrawing.Pen>
+                                <GeometryDrawing.Geometry>
+                                    <EllipseGeometry RadiusX="5" RadiusY="5" Center="13,7" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+</ResourceDictionary>

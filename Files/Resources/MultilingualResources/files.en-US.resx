@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddDirectoryPopupAddButton.Content" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddDirectoryPopupDiscardButton.Context" xml:space="preserve">
+    <value>Discard</value>
+  </data>
+  <data name="AddDirectoryPopupTitle.Text" xml:space="preserve">
+    <value>Add folder</value>
+  </data>
+  <data name="CenterPanelAdd.ToolTip" xml:space="preserve">
+    <value>Add (Ctrl+Shift+N)</value>
+  </data>
+  <data name="CenterPanelCopy.ToolTip" xml:space="preserve">
+    <value>Copy (Ctrl+C)</value>
+  </data>
+  <data name="CenterPanelCut.ToolTip" xml:space="preserve">
+    <value>Cut (Ctrl+X)</value>
+  </data>
+  <data name="CenterPanelDelete.ToolTip" xml:space="preserve">
+    <value>Delete (Delete)</value>
+  </data>
+  <data name="CenterPanelPaste.ToolTip" xml:space="preserve">
+    <value>Paste (Ctrl+V)</value>
+  </data>
+  <data name="CenterPanelRename.ToolTip" xml:space="preserve">
+    <value>Rename (F2)</value>
+  </data>
+  <data name="CenterPanelShare.ToolTip" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="FileListDateModified.Header" xml:space="preserve">
+    <value>Date modified</value>
+  </data>
+  <data name="FileListFilesCount.Text" xml:space="preserve">
+    <value>Files:</value>
+  </data>
+  <data name="FileListFoldersCount.Text" xml:space="preserve">
+    <value>Folders:</value>
+  </data>
+  <data name="FileListName.Header" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="FileListSize.Header" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="FileListType.Header" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="LeftPanelDrivesTitle.Text" xml:space="preserve">
+    <value>Drives</value>
+  </data>
+  <data name="LeftPanelFavoritesTitle.Text" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
+  <data name="NavigationToolbarBackButton.ToolTip" xml:space="preserve">
+    <value>Back (Alt+Left)</value>
+  </data>
+  <data name="NavigationToolbarForwardButton.ToolTip" xml:space="preserve">
+    <value>Forward (Alt+Right)</value>
+  </data>
+  <data name="NavigationToolbarRefreshButton.ToolTip" xml:space="preserve">
+    <value>Refresh (Ctrl+R, F5)</value>
+  </data>
+  <data name="NavigationToolbarUpButton.ToolTip" xml:space="preserve">
+    <value>Up (Alt+Up)</value>
+  </data>
+  <data name="NavigationToolbarGoToButton.ToolTip" xml:space="preserve">
+    <value>Go to</value>
+  </data>
+  <data name="Program.Title" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="RenamePopupDiscardButton.Content" xml:space="preserve">
+    <value>Discard</value>
+  </data>
+  <data name="RenamePopupSaveButton.Content" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="RenamePopupTitle.Text" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="TabButtonsAddTabButton.ToolTip" xml:space="preserve">
+    <value>New Tab (Ctrl+T)</value>
+  </data>
+  <data name="TabButtonsCloseTabButton.ToolTip" xml:space="preserve">
+    <value>Close Tab</value>
+  </data>
+  <data name="TopPanelSettingsButton.ToolTip" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="WindowTitleCloseButton.ToolTip" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="WindowTitleMaximizeButton.ToolTip" xml:space="preserve">
+    <value>Maximize</value>
+  </data>
+  <data name="WindowTitleMinimizeButton.ToolTip" xml:space="preserve">
+    <value>Minimize</value>
+  </data>
+  <data name="CenterPanelSearch.ToolTip" xml:space="preserve">
+    <value>Search (Ctrl+F)</value>
+  </data>
+  <data name="AddDirectoryPopupDefoultFoldersName" xml:space="preserve">
+    <value>New folder</value>
+  </data>
+  <data name="MessageDialogCancelButton.Content" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="MessageDialogNoButton.Content" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="MessageDialogOKButton.Content" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="MessageDialogYesButton.Content" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="CaptionError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="FileOperationBgWorkerIsBusy" xml:space="preserve">
+    <value>Please, start again later</value>
+  </data>
+  <data name="FileOperationCan'tCreateDirectory" xml:space="preserve">
+    <value>Can't create directory: </value>
+  </data>
+  <data name="FileOperationCan'tRenameFile" xml:space="preserve">
+    <value>Can't rename element: </value>
+  </data>
+  <data name="FileOperationSourceElement:" xml:space="preserve">
+    <value>Source element: </value>
+  </data>
+  <data name="FileOperationTarget:" xml:space="preserve">
+    <value>Target: </value>
+  </data>
+  <data name="CenterPanelCan'tOpenFile" xml:space="preserve">
+    <value>Can't open file: </value>
+  </data>
+  <data name="FileOperationCan'tCopyElement" xml:space="preserve">
+    <value>Can't copy element: </value>
+  </data>
+  <data name="FileOperationCan'tDeleteElement" xml:space="preserve">
+    <value>Can't delete element: </value>
+  </data>
+  <data name="FileOperationCan'tMoveElement" xml:space="preserve">
+    <value>Can't move element: </value>
+  </data>
+  <data name="CaptionInformation" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="TabContentWrongPath" xml:space="preserve">
+    <value>Wrond path</value>
+  </data>
+  <data name="PopupInvalidNameText.Text" xml:space="preserve">
+    <value>A file name can't contain any of the following characters:</value>
+  </data>
+  <data name="SystemMenuAlwaysOnTop" xml:space="preserve">
+    <value>Always on top</value>
+  </data>
+  <data name="SettingsPopupTitle.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="WindowTitleRestoreButton.ToolTip" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="GetDrivesLocalDiskDefaultName" xml:space="preserve">
+    <value>Local Disk</value>
+  </data>
+  <data name="KnownFolderDesktopName" xml:space="preserve">
+    <value>Desktop</value>
+  </data>
+  <data name="KnownFolderDocumentsName" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="KnownFolderDownloadsName" xml:space="preserve">
+    <value>Downloads</value>
+  </data>
+  <data name="KnownFolderMusicName" xml:space="preserve">
+    <value>Music</value>
+  </data>
+  <data name="KnownFolderPicturesName" xml:space="preserve">
+    <value>Pictures</value>
+  </data>
+  <data name="KnownFolderVideosName" xml:space="preserve">
+    <value>Videos</value>
+  </data>
+  <data name="SettingsPopupHiddenFiles.Text" xml:space="preserve">
+    <value>Show hidden files</value>
+  </data>
+  <data name="SettingsPopupLanguage.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="SettingsPopupTheme.Text" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="FileTypeApplication" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="FileTypeExcelDocument" xml:space="preserve">
+    <value>Excel Document</value>
+  </data>
+  <data name="FileTypeImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="FileTypeMusic" xml:space="preserve">
+    <value>Music</value>
+  </data>
+  <data name="FileTypePowerPointDocument" xml:space="preserve">
+    <value>PowerPoint Document</value>
+  </data>
+  <data name="FileTypeTextDocument" xml:space="preserve">
+    <value>Text Document</value>
+  </data>
+  <data name="FileTypeVideo" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="FileTypeWordDocument" xml:space="preserve">
+    <value>Word Document</value>
+  </data>
+  <data name="CenterPanelAdd.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="SettingsPopupOpenLastTabs.Text" xml:space="preserve">
+    <value>Open the last tabs at startup</value>
+  </data>
+  <data name="FileTypeFile" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="FileTypeFolder" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="CenterPanelFooterTextCopy" xml:space="preserve">
+    <value>Copying...</value>
+  </data>
+  <data name="CenterPanelFooterTextDeleting" xml:space="preserve">
+    <value>Deleting...</value>
+  </data>
+  <data name="CenterPanelFooterTextDone" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="CenterPanelFooterTextMove" xml:space="preserve">
+    <value>Moving...</value>
+  </data>
+  <data name="CenterPanelDataCreatedToolTip.Text" xml:space="preserve">
+    <value>Data created: </value>
+  </data>
+</root>

@@ -1,0 +1,555 @@
+﻿<UserControl x:Class="Files.Views.TabContentControl.CenterPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:lg="clr-namespace:Files.Resources.MultilingualResources"
+             xmlns:cv="clr-namespace:Files.ViewModels.Converters"
+             xmlns:mi="clr-namespace:Files.Models"
+             xmlns:v="clr-namespace:Files.Views"
+             xmlns:enums="clr-namespace:Files.Enums"
+             mc:Ignorable="d"
+             Foreground="{DynamicResource CenterPanelForegroundColor}"
+             MouseUp="UserControl_MouseUp">
+    <UserControl.Resources>
+        <cv:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <cv:SortTypeToArrowVisibility x:Key="SortTypeToArrowVisibility"/>
+        <cv:FilePathToImageConverter x:Key="FilePathToImageConverter"/>
+        <cv:FileSizeConverter x:Key="FileSizeConverter"/>
+    </UserControl.Resources>
+
+    <Border Background="{DynamicResource CenterPanelBackgroundColor}"
+            CornerRadius="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="54"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="26"/>
+            </Grid.RowDefinitions>
+
+            <DockPanel Grid.Row="0"
+                       LastChildFill="False">
+                <StackPanel DockPanel.Dock="Left"
+                            Orientation="Horizontal"
+                            Margin="7">
+                    <Button Width="Auto"
+                            Padding="6"
+                            ToolTip="{lg:Loc CenterPanelAdd.ToolTip}"
+                            Style="{StaticResource InstrumentButtonStyle}"
+                            Command="{Binding AddDirectoryCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="20"
+                                   Source="{StaticResource AddIcon}"/>
+                            <TextBlock Text="{lg:Loc CenterPanelAdd.Text}"
+                                       VerticalAlignment="Center"
+                                       Margin="3 0 0 0"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button ToolTip="{lg:Loc CenterPanelCut.ToolTip}"
+                            Style="{StaticResource InstrumentButtonStyle}"
+                            Command="{Binding CutFilesCommand}">
+                        <Image Width="20"
+                               Source="{StaticResource CutIcon}"/>
+                    </Button>
+
+                    <Button ToolTip="{lg:Loc CenterPanelCopy.ToolTip}"
+                            Style="{StaticResource InstrumentButtonStyle}"
+                            Command="{Binding CopyFilesCommand}">
+                        <Image Width="20"
+                               Source="{StaticResource CopyIcon}"/>
+                    </Button>
+
+                    <Button ToolTip="{lg:Loc CenterPanelPaste.ToolTip}"
+                            Style="{StaticResource InstrumentButtonStyle}"
+                            Command="{Binding PasteFilesCommand}"
+                            CommandParameter="{Binding SelectedItem, ElementName=FileList}">
+                        <Image Width="20"
+                               Source="{StaticResource PasteIcon}"/>
+                    </Button>
+
+                    <Button ToolTip="{lg:Loc CenterPanelRename.ToolTip}"
+                            Style="{StaticResource InstrumentButtonStyle}"
+                            Command="{Binding RenameFileCommand}"
+                            CommandParameter="{Binding SelectedItem, ElementName=FileList}">
+                        <Image Width="20"
+                               Source="{StaticResource RenameIcon}"/>
+                    </Button>
+
+                    <!--<Button ToolTip="{lg:Loc CenterPanelShare.ToolTip}"
+                            Style="{StaticResource InstrumentButtonStyle}">
+                        <Image Width="20"
+                               Source="{StaticResource ShareIcon}"/>
+                    </Button>-->
+
+                    <Button ToolTip="{lg:Loc CenterPanelDelete.ToolTip}"
+                            Style="{StaticResource InstrumentButtonStyle}"
+                            Command="{Binding DeleteFilesCommand}"
+                            CommandParameter="{StaticResource True}">
+                        <Image Width="20"
+                               Source="{StaticResource DeleteIcon}"/>
+                    </Button>
+
+                </StackPanel>
+
+                <StackPanel DockPanel.Dock="Right"
+                            Orientation="Horizontal">
+                    <Ellipse Width="16" Height="16"
+                             Margin="8"
+                             StrokeThickness="2"
+                             StrokeDashArray="16"
+                             RenderTransformOrigin="0.5 0.5"
+                             Stroke="{DynamicResource LoadingIndicatorStrokeColor}"
+                             Visibility="{Binding IsSearching, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <Ellipse.RenderTransform>
+                            <RotateTransform Angle="0"/>
+                        </Ellipse.RenderTransform>
+
+                        <Ellipse.Style>
+                            <Style TargetType="{x:Type Ellipse}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=IsVisible}" Value="True">
+                                        <DataTrigger.EnterActions>
+                                            <BeginStoryboard>
+                                                <Storyboard RepeatBehavior="Forever">
+                                                    <DoubleAnimation Storyboard.TargetProperty="(Ellipse.RenderTransform).(RotateTransform.Angle)"
+                                                         From="0" To="360"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </DataTrigger.EnterActions>
+                                        <DataTrigger.ExitActions>
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetProperty="(Ellipse.RenderTransform).(RotateTransform.Angle)"
+                                                         From="0" To="360"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </DataTrigger.ExitActions>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Ellipse.Style>
+                    </Ellipse>
+
+                    <TextBox x:Name="SearchPatternTextBox"
+                             MinWidth="160" Height="26"
+                             FontSize="16"
+                             Style="{StaticResource SearchTextBoxStyle}"
+                             KeyDown="SearchPatternTextBox_KeyDown"
+                             IsVisibleChanged="SearchPatternTextBox_IsVisibleChanged"/>
+
+                    <Button Margin="7"
+                            ToolTip="{lg:Loc CenterPanelSearch.ToolTip}"
+                            Style="{StaticResource InstrumentButtonStyle}"
+                            Command="{Binding SearchFilesCommand}"
+                            CommandParameter="{Binding Text, ElementName=SearchPatternTextBox}">
+                        <Image Width="20"
+                               Source="{StaticResource SearchIcons}"/>
+                    </Button>
+                </StackPanel>
+            </DockPanel>
+
+            <v:FileListView x:Name="FileList"
+                            Grid.Row="1"
+                            ItemsSource="{Binding Files}"
+                            SelectionMode="Extended"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Padding="5 0 0 2"
+                            Focusable="False"
+                            TabIndex="0"
+                            AllowDrop="True"
+                            Drop="FileList_Drop"
+                            Loaded="FileList_Loaded"
+                            SelectionChanged="FileList_SelectionChanged"
+                            v:ListViewExtenders.AutoScrollToVerticalSelected="{Binding ScrollPosition}"
+                            v:ListViewExtenders.ScrollOnDragDrop="True"
+                            Foreground="{DynamicResource FileListForegroundColor}">
+                <v:FileListView.Resources>
+                    <mi:MenuItemContainerTemplateSelector x:Key="MenuItemContainerTemplateSelector"/>
+
+                    <HierarchicalDataTemplate DataType="{x:Type mi:MenuItem}"
+                                              ItemsSource="{Binding Children}">
+                        <MenuItem Header="{Binding Header}"
+                                  Command="{Binding Command}"
+                                  CommandParameter="{Binding CommandParameter}"
+                                  UsesItemContainerTemplate="True"
+                                  ItemContainerTemplateSelector="{StaticResource MenuItemContainerTemplateSelector}"/>
+                    </HierarchicalDataTemplate>
+                    <HierarchicalDataTemplate DataType="{x:Type mi:Separator}"
+                                              ItemsSource="{Binding Children}">
+                        <Separator/>
+                    </HierarchicalDataTemplate>
+
+                    <Path x:Key="HeaderArrowUp" Data="M 0 6 L 4 2 L 8 6"/>
+                    <Path x:Key="HeaderArrowDown" Data="M 0 2 L 4 6 L 8 2"/>
+                </v:FileListView.Resources>
+                
+                <!--<v:FileListView.ContextMenu>
+                    <ContextMenu ItemsSource="{Binding ContextMenu}"
+                                 UsesItemContainerTemplate="True"
+                                 ItemContainerTemplateSelector="{StaticResource MenuItemContainerTemplateSelector}"/>
+                </v:FileListView.ContextMenu>-->
+
+                <v:FileListView.InputBindings>
+                    <KeyBinding Key="Return"
+                                Command="{Binding OpenFileCommand}"
+                                CommandParameter="{Binding SelectedItem, ElementName=FileList}"/>
+                </v:FileListView.InputBindings>
+
+                <v:FileListView.View>
+                    <GridView>
+                        <GridViewColumn Width="240">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource ListHeaderButtonStyle}"
+                                            Command="{Binding DataContext.SortListCommand, ElementName=FileList}"
+                                            CommandParameter="{x:Static enums:ListHeader.Name}">
+                                        <StackPanel Orientation="Horizontal"
+                                                    Height="16">
+                                            <TextBlock Text="{lg:Loc FileListName.Header}"/>
+                                            <Path x:Name="SortArrow"
+                                                  Margin="5"
+                                                  Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                                                  Data="{Binding Data, Source={StaticResource HeaderArrowUp}}"
+                                                  Visibility="{Binding DataContext.SortType, ElementName=FileList,
+                                                    Converter={StaticResource SortTypeToArrowVisibility},
+                                                    ConverterParameter={x:Static enums:ListHeader.Name}}"/>
+                                        </StackPanel>
+                                    </Button>
+                                    <DataTemplate.Triggers>
+                                        <DataTrigger Binding="{Binding DataContext.IsSortUp, ElementName=FileList}" Value="False">
+                                            <Setter TargetName="SortArrow" Property="Data"
+                                                    Value="{Binding Data, Source={StaticResource HeaderArrowDown}}"/>
+                                        </DataTrigger>
+                                    </DataTemplate.Triggers>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
+                            
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <Image Grid.Column="0"
+                                               Width="16"
+                                               Margin="0 0 5 0">
+                                            <Image.Style>
+                                                <Style TargetType="{x:Type Image}">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsDirectory}" Value="False">
+                                                            <Setter Property="Source" Value="{Binding FullName, Converter={StaticResource FilePathToImageConverter}}"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding IsDirectory}" Value="True">
+                                                            <Setter Property="Source" Value="{StaticResource FolderIcon}"/>
+                                                        </DataTrigger>
+
+                                                        <DataTrigger Binding="{Binding Folder}" Value="{x:Static enums:KnownFolder.Desktop}">
+                                                            <Setter Property="Source" Value="{StaticResource DesktopIcon}"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Folder}" Value="{x:Static enums:KnownFolder.Documents}">
+                                                            <Setter Property="Source" Value="{StaticResource DocumentsIcon}"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Folder}" Value="{x:Static enums:KnownFolder.Downloads}">
+                                                            <Setter Property="Source" Value="{StaticResource DownloadsIcon}"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Folder}" Value="{x:Static enums:KnownFolder.Music}">
+                                                            <Setter Property="Source" Value="{StaticResource MusicIcon}"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Folder}" Value="{x:Static enums:KnownFolder.Pictures}">
+                                                            <Setter Property="Source" Value="{StaticResource PicturesIcon}"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Folder}" Value="{x:Static enums:KnownFolder.Videos}">
+                                                            <Setter Property="Source" Value="{StaticResource VideosIcon}"/>
+                                                        </DataTrigger>
+
+                                                        <DataTrigger Binding="{Binding IsHidden}" Value="True">
+                                                            <Setter Property="Opacity" Value="0.5"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Image.Style>
+                                        </Image>
+                                        
+                                        <TextBlock Grid.Column="1"
+                                                   Text="{Binding Name}"
+                                                   TextTrimming="CharacterEllipsis"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        
+                        <GridViewColumn Width="150">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource ListHeaderButtonStyle}"
+                                            Command="{Binding DataContext.SortListCommand, ElementName=FileList}"
+                                            CommandParameter="{x:Static enums:ListHeader.DateModified}">
+                                        <StackPanel Orientation="Horizontal"
+                                                    Height="16">
+                                            <TextBlock Text="{lg:Loc FileListDateModified.Header}"/>
+                                            <Path x:Name="SortArrow"
+                                                  Margin="5"
+                                                  Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                                                  Data="{Binding Data, Source={StaticResource HeaderArrowUp}}"
+                                                  Visibility="{Binding DataContext.SortType, ElementName=FileList,
+                                                    Converter={StaticResource SortTypeToArrowVisibility},
+                                                    ConverterParameter={x:Static enums:ListHeader.DateModified}}"/>
+                                        </StackPanel>
+                                    </Button>
+                                    <DataTemplate.Triggers>
+                                        <DataTrigger Binding="{Binding DataContext.IsSortUp, ElementName=FileList}" Value="False">
+                                            <Setter TargetName="SortArrow" Property="Data"
+                                                    Value="{Binding Data, Source={StaticResource HeaderArrowDown}}"/>
+                                        </DataTrigger>
+                                    </DataTemplate.Triggers>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
+                            
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ModifiedOn}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        
+                        <GridViewColumn Width="130">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource ListHeaderButtonStyle}"
+                                            Command="{Binding DataContext.SortListCommand, ElementName=FileList}"
+                                            CommandParameter="{x:Static enums:ListHeader.Type}">
+                                        <StackPanel Orientation="Horizontal"
+                                                    Height="16">
+                                            <TextBlock Text="{lg:Loc FileListType.Header}"/>
+                                            <Path x:Name="SortArrow"
+                                                  Margin="5"
+                                                  Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                                                  Data="{Binding Data, Source={StaticResource HeaderArrowUp}}"
+                                                  Visibility="{Binding DataContext.SortType, ElementName=FileList,
+                                                    Converter={StaticResource SortTypeToArrowVisibility},
+                                                    ConverterParameter={x:Static enums:ListHeader.Type}}"/>
+                                        </StackPanel>
+                                    </Button>
+                                    <DataTemplate.Triggers>
+                                        <DataTrigger Binding="{Binding DataContext.IsSortUp, ElementName=FileList}" Value="False">
+                                            <Setter TargetName="SortArrow" Property="Data"
+                                                    Value="{Binding Data, Source={StaticResource HeaderArrowDown}}"/>
+                                        </DataTrigger>
+                                    </DataTemplate.Triggers>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
+                            
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Type}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        
+                        <GridViewColumn Width="80">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource ListHeaderButtonStyle}"
+                                            Command="{Binding DataContext.SortListCommand, ElementName=FileList}"
+                                            CommandParameter="{x:Static enums:ListHeader.Size}">
+                                        <StackPanel Orientation="Horizontal"
+                                                    Height="16">
+                                            <TextBlock Text="{lg:Loc FileListSize.Header}"/>
+                                            <Path x:Name="SortArrow"
+                                                  Margin="5"
+                                                  Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                                                  Data="{Binding Data, Source={StaticResource HeaderArrowUp}}"
+                                                  Visibility="{Binding DataContext.SortType, ElementName=FileList,
+                                                    Converter={StaticResource SortTypeToArrowVisibility},
+                                                    ConverterParameter={x:Static enums:ListHeader.Size}}"/>
+                                        </StackPanel>
+                                    </Button>
+                                    <DataTemplate.Triggers>
+                                        <DataTrigger Binding="{Binding DataContext.IsSortUp, ElementName=FileList}" Value="False">
+                                            <Setter TargetName="SortArrow" Property="Data"
+                                                    Value="{Binding Data, Source={StaticResource HeaderArrowDown}}"/>
+                                        </DataTrigger>
+                                    </DataTemplate.Triggers>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
+                            
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock>
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsDirectory}" Value="False">
+                                                        <Setter Property="Text" Value="{Binding Size, Converter={StaticResource FileSizeConverter}}"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </v:FileListView.View>
+
+                <v:FileListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type v:FileListViewItem}">
+                        <Setter Property="Margin" Value="2"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="BorderBrush" Value="{DynamicResource ItemBorderBrushColor}"/>
+                        <Setter Property="IsSelected" Value="{Binding IsSelected}"/>
+                        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualStyle}"/>
+                        <EventSetter Event="PreviewMouseDown" Handler="FileListViewItem_MouseDown"/>
+                        <EventSetter Event="PreviewMouseMove" Handler="FileListViewItem_PreviewMouseMove"/>
+                        <EventSetter Event="GiveFeedback" Handler="FileListViewItem_GiveFeedback"/>
+                        <EventSetter Event="Drop" Handler="FileListViewItem_Drop"/>
+                        <!--<Setter Property="ContextMenuService.IsEnabled" Value="{Binding IsSelected}"/>
+                        <Setter Property="ContextMenu">
+                            <Setter.Value>
+                                <ContextMenu ItemsSource="{Binding ContextMenu}"
+                                             UsesItemContainerTemplate="True"
+                                             ItemContainerTemplateSelector="{StaticResource MenuItemContainerTemplateSelector}"/>
+                            </Setter.Value>
+                        </Setter>-->
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type v:FileListViewItem}">
+                                    <Border x:Name="ButtonBorder"
+                                            Height="28"
+                                            CornerRadius="5"
+                                            AllowDrop="{Binding AllowDrop}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}">
+                                        <Border.Background>
+                                            <SolidColorBrush x:Name="ButtonBorderBackgroundColor"
+                                                             Color="{DynamicResource ItemBackgroundColor}"/>
+                                        </Border.Background>
+
+                                        <Border.ToolTip>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{lg:Loc CenterPanelDataCreatedToolTip.Text}"/>
+                                                <TextBlock Text="{Binding CreatedOn}"/>
+                                            </StackPanel>
+                                        </Border.ToolTip>
+                                        
+                                        <Border.Triggers>
+                                            <EventTrigger RoutedEvent="Border.DragEnter">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetName="ButtonBorderBackgroundColor"
+                                                                         Storyboard.TargetProperty="Opacity"
+                                                                         From="1" To="0"
+                                                                         Duration="00:00:00.0"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                            <EventTrigger RoutedEvent="Border.DragLeave">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetName="ButtonBorderBackgroundColor"
+                                                                         Storyboard.TargetProperty="Opacity"
+                                                                         From="0" To="1"
+                                                                         Duration="00:00:00.0"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                        </Border.Triggers>
+                                        <Border.InputBindings>
+                                            <MouseBinding MouseAction="LeftDoubleClick"
+                                                          Command="{Binding ElementName=FileList, Path=DataContext.OpenFileCommand}"
+                                                          CommandParameter="{Binding SelectedItem, ElementName=FileList}"/>
+                                        </Border.InputBindings>
+                                        <GridViewRowPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="ButtonBorder"
+                                                    Property="Background"
+                                                    Value="{DynamicResource ItemSelectedBackgroundColor}"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" Value="{DynamicResource ItemMouseBorderBrushColor}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </v:FileListView.ItemContainerStyle>
+            </v:FileListView>
+
+            <Border Grid.Row="2"
+                    Margin="5"
+                    CornerRadius="5"
+                    Background="{DynamicResource FooterBackgroundColor}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="1.5*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal"
+                                Margin="10 0">
+                        <TextBlock Text="{lg:Loc FileListFoldersCount.Text}"
+                                   Margin="0 0 3 0"/>
+                        <TextBlock Text="{Binding FoldersCount}"/>
+
+                        <Rectangle Width="1" Height="10"
+                                   Margin="5 0"
+                                   Fill="{DynamicResource FooterSplitterFillColor}"/>
+
+                        <TextBlock Text="{lg:Loc FileListFilesCount.Text}"
+                                   Margin="0 0 3 0"/>
+                        <TextBlock Text="{Binding FilesCount}"/>
+                    </StackPanel>
+
+                    <ProgressBar Grid.Column="1"
+                                 Height="7"
+                                 Value="{Binding ProgressBarValue}"
+                                 Maximum="{Binding ProgressBarMaxValue}">
+                        <ProgressBar.Style>
+                            <Style TargetType="{x:Type ProgressBar}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ProgressBar}">
+                                            <Grid>
+                                                <Border x:Name="PART_Track"
+                                                        CornerRadius="3"
+                                                        BorderThickness="1"
+                                                        BorderBrush="{DynamicResource ProgressBarTrackBorderBrushColor}">
+                                                </Border>
+                                                <Border x:Name="PART_Indicator"
+                                                        CornerRadius="3"
+                                                        BorderThickness="1"
+                                                        HorizontalAlignment="Left"
+                                                        Background="{DynamicResource ProgressBarIndicatorBackgroundColor}">
+                                                </Border>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="Value" Value="0">
+                                        <Setter Property="Visibility" Value="Hidden"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ProgressBar.Style>
+                    </ProgressBar>
+
+                    <TextBlock Grid.Column="2"
+                               Text="{Binding FooterText}"
+                               HorizontalAlignment="Right"
+                               Margin="10 0"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>
